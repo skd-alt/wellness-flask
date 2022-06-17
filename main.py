@@ -26,6 +26,14 @@ def self_check():
 def food():
     return render_template('consultations/food.html')
 
+@app.route('/consultations/fasting/')
+def fasting():
+    return render_template('consultations/fasting.html')
+
+@app.route('/consultations/sleep/')
+def sleep():
+    return render_template('consultations/sleep.html')
+
 @app.route("/guess/<name>")
 def guess(name):
     gender_url = f"https://api.genderize.io?name={name}"
