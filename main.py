@@ -8,12 +8,23 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-
     return render_template("index.html")
+
+@app.route('/consultations/exercise/')
+def exercise():
+    return render_template('consultations/exercise.html')
 
 @app.route('/consultations/general_info/')
 def general_info():
     return render_template('consultations/general_info.html')
+
+@app.route('/consultations/self_check/')
+def self_check():
+    return render_template('consultations/self_check.html')
+
+@app.route('/consultations/food/')
+def self_check():
+    return render_template('consultations/food.html')
 
 @app.route("/guess/<name>")
 def guess(name):
