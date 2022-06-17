@@ -23,7 +23,7 @@ def self_check():
     return render_template('consultations/self_check.html')
 
 @app.route('/consultations/food/')
-def self_check():
+def food():
     return render_template('consultations/food.html')
 
 @app.route("/guess/<name>")
