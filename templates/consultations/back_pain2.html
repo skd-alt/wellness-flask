@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{%load static%}
+
+
+{% block content %}
+
+
+
+<main>
+	<div class="for-employers">
+    <div id="overlay">
+
+        <form name="form1" method="post" action="{% url 'skin_care' %}">
+            {% csrf_token %}
+            <h4>If you experience back pain</h4>
+                <h5>2.	Do you experience any of the following:
+                </h5>
+              <p>
+                <label>
+                <input type="radio" name="radio1" value="yes" id="Radio1">
+                  Acne?</label>
+                <br>
+                <label>
+                <input type="radio" name="radio2" value="yes" id="Radio2">
+                  Redness?</label>
+                <br>
+                <label>
+                  <input type="radio" name="radio3" value="yes" id="Radio3">
+                  Hyperpigmented?</label>
+                <br>
+                <label>
+                  <input type="radio" name="radio4" value="yes" id="Radio4">
+                  Dry?</label>
+                <br>
+                <label>
+                  <input type="radio" name="radio5" value="yes" id="Radio5">
+                  Wrinkled?</label>
+                <br>
+                <label>
+              <input class="btn btn-primary" type="submit" name="next" id="next" value="Submit">
+              </label>
+              </p>
+
+              
+            </form>
+           
+        </div>
+</div>
+{% include 'includes/alerts.html' %}
+
+
+
+
+</div>
+
+
+</main>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{%load static%}
+
+
+{% block content %}
+
+
+
+<main>
+	<div class="for-employers">
+    <div id="overlay">
+        {% include 'includes/alerts.html' %}
+        <form name="form1" method="post" action="{% url 'female_urinary2' %}">
+            {% csrf_token %}
+            
+            <br>
+                <h5>2.	Do you experience urine leaks when laughing/coughing/sneezing?
+                </h5>
+                <br>
+              <p>
+                <label>
+                <input type="radio" name="radio1" value="yes" id="Radio1">
+                yes</label>
+                <label>
+                  <input type="radio" name="radio1" value="no" id="Radio1">
+                  no</label>
+                <br>
+                <h5>3.	Do you experience urine leaks soon after experiencing the urge to urinate?
+                </h5>
+                <br>
+              <p>
+                <label>
+                <input type="radio" name="radio2" value="yes" id="Radio2">
+                yes</label>
+                <label>
+                  <input type="radio" name="radio2" value="no" id="Radio2">
+                  no</label>
+                <br>
+                <h5>4.	Do you have a mixture of both stress incontinence and urge symptoms?
+                </h5>
+                <br>
+              <p>
+                <label>
+                <input type="radio" name="radio3" value="yes" id="Radio3">
+                yes</label>
+                <label>
+                  <input type="radio" name="radio3" value="no" id="Radio3">
+                  no</label>
+                <br>
+                <h5>5.	if you are above the age of 60, do you experience any of the following?
+                </h5>
+                
+                <br>
+              <p><ol>
+                <li>urinary leak</li>
+                <li>urinary urge symptom</li>
+                <li>symptoms consistent with genitourinary symptoms of menopause</li>
+            </ol>
+            <br>
+                <label>
+                <input type="radio" name="radio4" value="yes" id="Radio4">
+                yes</label>
+                <label>
+                  <input type="radio" name="radio4" value="no" id="Radio4">
+                  no</label>
+                <br>
+                
+                <br>
+                <label>
+              <input class="btn btn-primary" type="submit" name="next" id="next" value="Submit">
+              </label>
+              </p>
+              <h5>Consult a urologist immediately if </h5>
+              <ul>
+                  <li>if you are above the age of 60 and experience a heavy sensation in your pelvic region?</li>
+                  <li>Experience sensation of still having urine in the bladder after urinating.</li>
+                  <li>Have a Poor urinary stream</li>
+                  <li>Have Blood in the urine</li>
+              </ul>
+
+
+              
+            </form>
+           
+        </div>
+</div>
+
+
+
+
+
+</div>
+
+
+</main>
+
+
+
+
+
+
+{% endblock %}

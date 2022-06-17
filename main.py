@@ -8,9 +8,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    random_number = random.randint(1, 10)
-    current_year = datetime.datetime.now().year
-    return render_template("index.html", num=random_number, year=current_year)
+
+    return render_template("index.html")
+
+@app.route('/consultations/general_info/')
+def general_info():
+    return render_template('consultations/general_info.html')
 
 @app.route("/guess/<name>")
 def guess(name):

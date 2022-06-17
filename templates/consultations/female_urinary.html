@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{%load static%}
+
+
+{% block content %}
+
+
+
+<main>
+	<div class="for-employers">
+    <div id="overlay">
+
+        <form name="form1" method="post" action="{% url 'female_urinary' %}">
+            {% csrf_token %}
+            <h4>For women experiencing difficulty controlling their urine which results in leaks?</h4>
+            <br>
+                <h5>1.	Do you experience any of the following:
+                </h5>
+                <br>
+              <p>
+                Loss of control of your bowel with faecal incontinence? <label>
+                <input type="radio" name="radio1" value="yes" id="Radio1">
+                yes</label>
+                <label>
+                  <input type="radio" name="radio1" value="no" id="Radio1">
+                  no</label>
+                <br>
+                Continuous leakage of urine with no pause? <label>
+                <input type="radio" name="radio2" value="yes" id="Radio2">
+                yes</label>
+                <label>
+                  <input type="radio" name="radio2" value="no" id="Radio2">
+                  no </label>
+                <br>
+                Repeated bladder or kidney infections? <label>
+                  <input type="radio" name="radio3" value="yes" id="Radio3">
+                yes </label>
+                <label>
+                  <input type="radio" name="radio3" value="no" id="Radio3">
+                no </label>
+                <br>
+                <br>
+                <label>
+              <input class="btn btn-primary" type="submit" name="next" id="next" value="Submit">
+              </label>
+              </p>
+
+              
+            </form>
+           
+        </div>
+</div>
+{% include 'includes/alerts.html' %}
+
+
+
+
+</div>
+
+
+</main>
+
+
+
+
+
+
+{% endblock %}

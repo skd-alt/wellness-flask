@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{%load static%}
+
+
+{% block content %}
+
+
+
+<main>
+	<div class="for-employers">
+    <div id="overlay">
+
+        <form name="form1" method="post" action="{% url 'back_pain' %}">
+            {% csrf_token %}
+            <h4>If you experience back pain</h4>
+                <h5>1.	Do you experience any of the following:
+                </h5>
+              <p>
+                Leaking of urine or difficulty urinating? <label>
+                <input type="radio" name="radio1" value="yes" id="Radio1">
+                yes</label>
+                <label>
+                  <input type="radio" name="radio1" value="no" id="Radio1">
+                  no</label>
+                <br>
+                Leaking of faeces or constipation? <label>
+                <input type="radio" name="radio2" value="yes" id="Radio2">
+                yes</label>
+                <label>
+                  <input type="radio" name="radio2" value="no" id="Radio2">
+                  no </label>
+                <br>
+                Loss of power in your lower limbs? <label>
+                  <input type="radio" name="radio3" value="yes" id="Radio3">
+                yes </label>
+                <label>
+                  <input type="radio" name="radio3" value="no" id="Radio3">
+                no </label>
+                <br>
+                Numbness on the inside of the thigh? <label>
+                  <input type="radio" name="radio4" value="yes" id="Radio4">
+                yes</label>
+                <label>
+                  <input type="radio" name="radio4" value="no" id="Radio4">
+                no</label>
+                <br>
+                Abnormal sensation when wiping after using the toilet ? <label>
+                  <input type="radio" name="radio5" value="yes" id="Radio5">
+                 yes </label>
+                 <label>
+                  <input type="radio" name="radio5" value="no" id="Radio5">
+                 no</label>
+                <br>
+                <label>
+              <input class="btn btn-primary" type="submit" name="next" id="next" value="Submit">
+              </label>
+              </p>
+
+              
+            </form>
+           
+        </div>
+</div>
+{% include 'includes/alerts.html' %}
+
+
+
+
+</div>
+
+
+</main>
+
+
+
+
+
+
+{% endblock %}
