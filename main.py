@@ -2,8 +2,18 @@ from flask import Flask, render_template
 import random
 import datetime
 import requests
+from flask_wtf import FlaskForm
+from wtforms import RadioField
+
+
+class SkinCareForm(FlaskForm):
+    certification = RadioField('certification', choices=[('Acne', 'Acne'), ('Redness', 'Redness'),
+                                                         ('Hyper pigmented', 'Hyper pigmented'), ('Dry', 'Dry'),
+                                                         ('Wrinkled','Wrinkled')])
+
 
 app = Flask(__name__)
+app.secret_key = "#2247tryryWWWT23ff"
 
 
 @app.route('/')
@@ -36,7 +46,8 @@ def sleep():
 
 @app.route('/consultations/skin_care/')
 def skin_care():
-    return render_template('consultations/skin_care.html')
+    skin_care_form = SkinCareForm()
+    return render_template('consultations/skin_care.html', form=skin_care_form)
 
 @app.route("/guess/<name>")
 def guess(name):

@@ -552,7 +552,7 @@ a {
   .cloud-item4 {
   position: relative;
   top: -840px;
-  left: 15rem;
+  left: 12rem;
   background-image: url("../images/cloud.png");
   height: 136px;
   width: 180px;
@@ -564,7 +564,7 @@ a {
 .cloud-item5 {
   position: relative;
   top: -780px;
-  left: 20rem;
+  left: 15rem;
   background-image: url("../images/cloud.png");
   height: 136px;
   width: 180px;
@@ -576,7 +576,7 @@ a {
 .cloud-item6 {
   position: relative;
   top: -760px;
-  left: 15rem;
+  left: 12rem;
   background-image: url("../images/cloud.png");
   height: 136px;
   width: 180px;
@@ -591,7 +591,7 @@ a {
 	.cloud-item {
 	  position: relative;
 	  top: -440px;
-	  left: 30px;
+	  left: 5px;
 	  background-image: url("../images/cloud.png");
 	  height: 136px;
 	  width: 180px;
@@ -603,7 +603,7 @@ a {
 	.cloud-item2 {
 	  position: relative;
 	  top: -400px;
-	  left: 10px;
+	  left: 5px;
 	  background-image: url("../images/cloud.png");
 	  height: 136px;
 	  width: 180px;
@@ -615,7 +615,7 @@ a {
 	.cloud-item3 {
 	  position: relative;
 	  top: -360px;
-	  left: 30px;
+	  left: 5px;
 	  background-image: url("../images/cloud.png");
 	  height: 136px;
 	  width: 180px;
@@ -639,7 +639,7 @@ a {
 .cloud-item5 {
   position: relative;
   top: -780px;
-  left: 15rem;
+  left: 10rem;
   background-image: url("../images/cloud.png");
   height: 136px;
   width: 180px;

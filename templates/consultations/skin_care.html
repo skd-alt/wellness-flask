@@ -7,28 +7,18 @@
     <div id="overlay">
 
         <form name="form1" method="post" action="">
-
+            {{ form.csrf_token }}
             <h4>Which best describes your skin?</h4>
               <p>
-                <label>
-                <input type="radio" name="RadioGroup1" value="Acne" id="RadioGroup1_0">
-                  Acne?</label>
+
+                {% for subfield in form.certification %}
+                <div class="form-check">
+                 <label class="form-check-label">
+                {{ subfield }}
+                  {{ subfield.label }}</label>
                 <br>
-                <label>
-                <input type="radio" name="RadioGroup1" value="Redness" id="RadioGroup1_1">
-                  Redness?</label>
-                <br>
-                <label>
-                  <input type="radio" name="RadioGroup1" value="Hyperpigmented" id="RadioGroup1_2">
-                  Hyperpigmented?</label>
-                <br>
-                <label>
-                  <input type="radio" name="RadioGroup1" value="Dry" id="RadioGroup1_3">
-                  Dry?</label>
-                <br>
-                <label>
-                  <input type="radio" name="RadioGroup1" value="Wrinkled" id="RadioGroup1_3">
-                  Wrinkled?</label>
+                </div>
+                {% endfor %}
                 <br>
                 <label>
               <input class="btn btn-primary" type="submit" name="next" id="next" value="Submit">
