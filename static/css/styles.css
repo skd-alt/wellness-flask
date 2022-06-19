@@ -588,6 +588,11 @@ a {
 
 @media screen and (max-width: 400px) {
 
+    .container-hmpg {
+        background-image: url("../images/homepage3alt.jpg" );
+        height: 450px;
+    }
+
 	.cloud-item {
 	  position: relative;
 	  top: -440px;

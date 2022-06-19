@@ -6,7 +6,7 @@
 	<div class="for-employers">
     <div id="overlay">
 
-        <form name="form1" method="post" action="">
+        <form name="form1" method="post" action="{{ url_for('skin_care') }}">
             {{ form.csrf_token }}
             <h4>Which best describes your skin?</h4>
               <p>
@@ -27,7 +27,7 @@
 
               
             </form>
-           
+           <div>{{ messages_r }}</div>
 	</div>
 </div>
 {% include 'includes/alerts.html' %}
