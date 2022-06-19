@@ -1,8 +1,4 @@
-{% extends 'base.html' %}
-{%load static%}
-
-
-{% block content %}
+{% include 'includes/navbar.html' %}
 
 
 
@@ -10,8 +6,8 @@
 	<div class="for-employers">
     <div id="overlay">
 
-        <form name="form1" method="post" action="{% url 'skin_care' %}">
-            {% csrf_token %}
+        <form name="form1" method="post" action="">
+            
             <h4>Which best describes your skin?</h4>
               <p>
                 <label>
@@ -59,4 +55,4 @@
 
 
 
-{% endblock %}
+{% include 'includes/footer.html' %}

@@ -34,6 +34,10 @@ def fasting():
 def sleep():
     return render_template('consultations/sleep.html')
 
+@app.route('/consultations/skin_care/')
+def skin_care():
+    return render_template('consultations/skin_care.html')
+
 @app.route("/guess/<name>")
 def guess(name):
     gender_url = f"https://api.genderize.io?name={name}"

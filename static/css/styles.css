@@ -471,3 +471,118 @@ a {
   color: #000000;
   padding: 0 0 5px 0;
 }
+
+@media screen and (max-width: 1200px) {
+  .cloud-item4 {
+  position: relative;
+  top: -840px;
+  left: 40rem;
+  background-image: url("../images/cloud.png");
+  height: 136px;
+  width: 180px;
+  padding: 30px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.cloud-item5 {
+  position: relative;
+  top: -780px;
+  left: 45rem;
+  background-image: url("../images/cloud.png");
+  height: 136px;
+  width: 180px;
+  padding: 30px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.cloud-item6 {
+  position: relative;
+  top: -760px;
+  left: 40rem;
+  background-image: url("../images/cloud.png");
+  height: 136px;
+  width: 180px;
+  padding: 30px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+}
+
+@media screen and (max-width: 992px) {
+  .cloud-item4 {
+  position: relative;
+  top: -840px;
+  left: 35rem;
+  background-image: url("../images/cloud.png");
+  height: 136px;
+  width: 180px;
+  padding: 30px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.cloud-item5 {
+  position: relative;
+  top: -780px;
+  left: 40rem;
+  background-image: url("../images/cloud.png");
+  height: 136px;
+  width: 180px;
+  padding: 30px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.cloud-item6 {
+  position: relative;
+  top: -760px;
+  left: 35rem;
+  background-image: url("../images/cloud.png");
+  height: 136px;
+  width: 180px;
+  padding: 30px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+}
+
+@media screen and (max-width: 600px) {
+  .cloud-item4 {
+  position: relative;
+  top: -840px;
+  left: 15rem;
+  background-image: url("../images/cloud.png");
+  height: 136px;
+  width: 180px;
+  padding: 30px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.cloud-item5 {
+  position: relative;
+  top: -780px;
+  left: 20rem;
+  background-image: url("../images/cloud.png");
+  height: 136px;
+  width: 180px;
+  padding: 30px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.cloud-item6 {
+  position: relative;
+  top: -760px;
+  left: 15rem;
+  background-image: url("../images/cloud.png");
+  height: 136px;
+  width: 180px;
+  padding: 30px 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+}
+
