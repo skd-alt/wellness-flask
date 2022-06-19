@@ -549,6 +549,12 @@ a {
 }
 
 @media screen and (max-width: 600px) {
+
+  .container-hmpg {
+        background-image: url("../images/homepage3alt.jpg" );
+        height: 450px;
+    }
+
   .cloud-item4 {
   position: relative;
   top: -840px;
@@ -586,7 +592,7 @@ a {
 }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
 
     .container-hmpg {
         background-image: url("../images/homepage3alt.jpg" );
