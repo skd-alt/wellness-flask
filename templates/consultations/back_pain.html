@@ -4,7 +4,7 @@
 <main>
 	<div class="for-employers">
     <div id="overlay">
-
+        {% include 'includes/alerts.html' %}
         <form name="form2" method="post" action="{{ url_for('back_pain') }}">
             {{ form.csrf_token }}
 
@@ -68,7 +68,7 @@
            
         </div>
 </div>
-{% include 'includes/alerts.html' %}
+
 
 
 
