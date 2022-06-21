@@ -23,7 +23,7 @@
       <div class="container">
         <nav class="navbar sticky-top navbar-expand-lg navbar-light">
           <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img src="{{ url_for('static', filename='/images/logo.jpg')}}" alt="WellnessClinix" height="100"></a>
+            <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='/images/logo.jpg')}}" alt="WellnessClinix" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,12 +52,16 @@
                   <a class="nav-link">Contact Us</a>
                 </li>
               </ul>
+              {% if not logged_in %}
+
+              <a class="nav-text" aria-current="page" href="{{ url_for('login') }}">Login</a>
 
 
-              <a class="nav-text" aria-current="page" href="login.html">Login</a>
-
-
-              <a class="btn btn-primary btn-md" aria-current="page" href="sign-up.html">Sign Up</a>
+              <a class="btn btn-primary btn-md" aria-current="page" href="{{ url_for('register') }}">Sign Up</a>
+              {% endif %}
+              {% if logged_in %}
+              <a class="nav-text" aria-current="page" href="{{ url_for('logout') }}">Logout</a>
+              {% endif %}
 
             </div>
           </div>
