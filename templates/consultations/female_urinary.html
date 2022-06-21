@@ -1,43 +1,43 @@
-{% extends 'base.html' %}
-{%load static%}
-
-
-{% block content %}
-
-
+{% include 'includes/navbar.html' %}
 
 <main>
 	<div class="for-employers">
     <div id="overlay">
-
-        <form name="form1" method="post" action="{% url 'female_urinary' %}">
-            {% csrf_token %}
+    {% include 'includes/alerts.html' %}
+        <form method="post" action="{{ url_for('female_urinary') }}">
+            {{ form.csrf_token }}
             <h4>For women experiencing difficulty controlling their urine which results in leaks?</h4>
             <br>
                 <h5>1.	Do you experience any of the following:
                 </h5>
                 <br>
               <p>
-                Loss of control of your bowel with faecal incontinence? <label>
-                <input type="radio" name="radio1" value="yes" id="Radio1">
-                yes</label>
-                <label>
-                  <input type="radio" name="radio1" value="no" id="Radio1">
-                  no</label>
+                Loss of control of your bowel with fecal incontinence?
+                  {% for subfield in form.radio6 %}
+                  <div class="form-check">
+                 <label>
+                {{ subfield }}
+                  {{ subfield.label }}</label>
+                </div>
+                {% endfor %}
                 <br>
-                Continuous leakage of urine with no pause? <label>
-                <input type="radio" name="radio2" value="yes" id="Radio2">
-                yes</label>
-                <label>
-                  <input type="radio" name="radio2" value="no" id="Radio2">
-                  no </label>
+                Continuous leakage of urine with no pause?
+                {% for subfield in form.radio7 %}
+                  <div class="form-check">
+                 <label>
+                {{ subfield }}
+                  {{ subfield.label }}</label>
+                </div>
+                {% endfor %}
                 <br>
-                Repeated bladder or kidney infections? <label>
-                  <input type="radio" name="radio3" value="yes" id="Radio3">
-                yes </label>
-                <label>
-                  <input type="radio" name="radio3" value="no" id="Radio3">
-                no </label>
+                Repeated bladder or kidney infections?
+                {% for subfield in form.radio8 %}
+                  <div class="form-check">
+                 <label>
+                {{ subfield }}
+                  {{ subfield.label }}</label>
+                </div>
+                {% endfor %}
                 <br>
                 <br>
                 <label>
@@ -50,7 +50,7 @@
            
         </div>
 </div>
-{% include 'includes/alerts.html' %}
+
 
 
 
@@ -60,9 +60,4 @@
 
 </main>
 
-
-
-
-
-
-{% endblock %}
+{% include 'includes/footer.html' %}

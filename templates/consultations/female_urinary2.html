@@ -1,17 +1,11 @@
-{% extends 'base.html' %}
-{%load static%}
-
-
-{% block content %}
-
-
+{% include 'includes/navbar.html' %}
 
 <main>
 	<div class="for-employers">
     <div id="overlay">
         {% include 'includes/alerts.html' %}
-        <form name="form1" method="post" action="{% url 'female_urinary2' %}">
-            {% csrf_token %}
+        <form method="post" action="{{ url_for('female_urinary2') }}">
+            {{ form.csrf_token }}
             
             <br>
                 <h5>2.	Do you experience urine leaks when laughing/coughing/sneezing?
@@ -94,9 +88,4 @@
 
 </main>
 
-
-
-
-
-
-{% endblock %}
+{% include 'includes/footer.html' %}

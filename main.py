@@ -23,10 +23,29 @@ class RegisterForm(FlaskForm):
 
 class BackPainForm(FlaskForm):
     radio1 = RadioField('radio1', choices=[('Yes', 'Yes'), ('No', 'No')])
+    radio2 = RadioField('radio2', choices=[('Yes', 'Yes'), ('No', 'No')])
+    radio3 = RadioField('radio3', choices=[('Yes', 'Yes'), ('No', 'No')])
+    radio4 = RadioField('radio4', choices=[('Yes', 'Yes'), ('No', 'No')])
+    radio5 = RadioField('radio5', choices=[('Yes', 'Yes'), ('No', 'No')])
+
+
+class FemaleUrinary(FlaskForm):
+    radio6 = RadioField('radio6', choices=[('Yes', 'Yes'), ('No', 'No')])
+    radio7 = RadioField('radio7', choices=[('Yes', 'Yes'), ('No', 'No')])
+    radio8 = RadioField('radio8', choices=[('Yes', 'Yes'), ('No', 'No')])
+
+
+class FemaleUrinary2(FlaskForm):
+    radio1 = RadioField('radio1', choices=[('Yes', 'Yes'), ('No', 'No')])
     radio2 = RadioField('radio1', choices=[('Yes', 'Yes'), ('No', 'No')])
     radio3 = RadioField('radio1', choices=[('Yes', 'Yes'), ('No', 'No')])
     radio4 = RadioField('radio1', choices=[('Yes', 'Yes'), ('No', 'No')])
     radio5 = RadioField('radio1', choices=[('Yes', 'Yes'), ('No', 'No')])
+
+
+class MaleUrinaryForm(FlaskForm):
+    radio1 = RadioField('radio1', choices=[('Yes', 'Yes'), ('No', 'No')])
+    radio2 = RadioField('radio1', choices=[('Yes', 'Yes'), ('No', 'No')])
 
 
 app = Flask(__name__)
@@ -37,6 +56,7 @@ db = SQLAlchemy(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -61,32 +81,32 @@ def home():
 
 @app.route('/consultations/exercise/')
 def exercise():
-    return render_template('consultations/exercise.html')
+    return render_template('consultations/exercise.html', logged_in=current_user.is_authenticated)
 
 
 @app.route('/consultations/general_info/')
 def general_info():
-    return render_template('consultations/general_info.html')
+    return render_template('consultations/general_info.html', logged_in=current_user.is_authenticated)
 
 
 @app.route('/consultations/self_check/')
 def self_check():
-    return render_template('consultations/self_check.html')
+    return render_template('consultations/self_check.html', logged_in=current_user.is_authenticated)
 
 
 @app.route('/consultations/food/')
 def food():
-    return render_template('consultations/food.html')
+    return render_template('consultations/food.html', logged_in=current_user.is_authenticated)
 
 
 @app.route('/consultations/fasting/')
 def fasting():
-    return render_template('consultations/fasting.html')
+    return render_template('consultations/fasting.html', logged_in=current_user.is_authenticated)
 
 
 @app.route('/consultations/sleep/')
 def sleep():
-    return render_template('consultations/sleep.html')
+    return render_template('consultations/sleep.html', logged_in=current_user.is_authenticated)
 
 
 @app.route('/consultations/skin_care/', methods=["GET", "POST"])
@@ -128,6 +148,83 @@ def back_pain():
     else:
         messages_r = None
         return render_template('consultations/back_pain.html', form=back_form, message=messages_r, logged_in=True)
+
+
+@app.route('/consultations/female_urinary/', methods=["GET", "POST"])
+@login_required
+def female_urinary():
+    female_urinary_form = FemaleUrinary()
+    name_of_consult = "Female Urinary"
+    if female_urinary_form.radio6.data == "Yes" or female_urinary_form.radio7.data == "Yes" or female_urinary_form.radio8.data == "Yes":
+        prescription = "Urgently see your doctor"
+        tags_message = "warning"
+        return render_template('consultations/female_urinary.html', form=female_urinary_form, message=prescription, tag=tags_message, logged_in=True)
+
+    elif female_urinary_form.radio6.data == "No" and female_urinary_form.radio7.data == "No" and female_urinary_form.radio8.data == "No":
+        return redirect(url_for('female_urinary2'))
+
+    else:
+        messages_r = None
+        return render_template('consultations/female_urinary.html', form=female_urinary_form, message=messages_r, logged_in=True)
+
+
+@app.route('/consultations/female_urinary2/', methods=["GET", "POST"])
+@login_required
+def female_urinary2():
+    female_urinary_form2 = FemaleUrinary2()
+    name_of_consult = "Female Urinary"
+    if female_urinary_form2.radio3.data == "yes":
+        prescription = "combine the pelvic floor muscle training program & the bladder training program for 12 weeks. If no improvement consult a urogynaecologist."
+        tags_message = "success"
+        return render_template('consultations/female_urinary2.html', form=female_urinary_form2, message=prescription,
+                               tag=tags_message, logged_in=True)
+
+    elif female_urinary_form2.radio1.data == "yes" and female_urinary_form2.radio2.data == "yes":
+        prescription = "combine the pelvic floor muscle training program & the bladder training program for 12 weeks. If no improvement consult a urogynaecologist."
+        tags_message = "success"
+        return render_template('consultations/female_urinary2.html', form=female_urinary_form2, message=prescription,
+                               tag=tags_message, logged_in=True)
+
+    elif female_urinary_form2.radio1.data == "yes" and female_urinary_form2.radio2.data == "no":
+        prescription = "Do the pelvic floor muscle training program for 12 weeks. If no improvement consult a urogynaecologist."
+        tags_message = "success"
+        return render_template('consultations/female_urinary2.html', form=female_urinary_form2, message=prescription,
+                               tag=tags_message, logged_in=True)
+    elif female_urinary_form2.radio2.data == "yes" and female_urinary_form2.radio1.data == "no":
+        prescription = "Do the bladder training program for 12 weeks. If no improvement consult a urogynaecologist."
+        tags_message = "success"
+        return render_template('consultations/female_urinary2.html', form=female_urinary_form2, message=prescription,
+                               tag=tags_message, logged_in=True)
+    elif female_urinary_form2.radio4.data == "yes":
+        prescription = "Do the pelvic floor muscle training program for 12 weeks. If no improvement consult a urogynaecologist."
+        tags_message = "success"
+        return render_template('consultations/female_urinary2.html', form=female_urinary_form2, message=prescription,
+                               tag=tags_message, logged_in=True)
+    else:
+        messages_r = None
+        return render_template('consultations/female_urinary2.html', form=female_urinary_form2, message=messages_r,
+                               logged_in=True)
+
+
+@app.route('/consultations/male_urinary/', methods=["GET", "POST"])
+@login_required
+def male_urinary():
+    male_urinary_form = MaleUrinaryForm()
+    name_of_consult = "Back & Neck Pain"
+    if male_urinary_form.radio1.data == "Yes" or male_urinary_form.radio2.data == "Yes":
+        prescription = "Urgently see your doctor"
+        tags_message = "warning"
+        return render_template('consultations/male_urinary.html', form=male_urinary_form, message=prescription,
+                               tag=tags_message, logged_in=True)
+
+    elif male_urinary_form.radio1.data == "No" and male_urinary_form.radio2.data == "No":
+        prescription = "trial of erectile rehabilitation home pack for 6 weeks to 3 months"
+        tags_message = "success"
+        return render_template('consultations/male_urinary.html', form=male_urinary_form, message=prescription, tag=tags_message, logged_in=True)
+
+    else:
+        messages_r = None
+        return render_template('consultations/male_urinary.html', form=male_urinary_form, message=messages_r, logged_in=True)
 
 
 @app.route('/register', methods=["GET", "POST"])
@@ -191,6 +288,17 @@ def login():
             # return redirect(url_for('home', name=user.name))
 
     return render_template("accounts/login.html", logged_in=current_user.is_authenticated)
+
+
+@app.route('/consultations/diabetes/')
+@login_required
+def diabetes():
+    return render_template('consultations/diabetes.html', logged_in=True)
+
+@app.route('/consultations/hypertension/')
+@login_required
+def hypertension():
+    return render_template('consultations/hypertension.html', logged_in=True)
 
 
 @app.route('/secrets/<name>')

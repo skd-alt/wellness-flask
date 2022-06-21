@@ -1,0 +1,64 @@
+{% include 'includes/navbar.html' %}
+
+
+<main>
+	<div class="for-employers">
+    <div id="overlay">
+        {% include 'includes/alerts.html' %}
+        <h2>DIFFICULTY WITH URINATING?</h2>
+        <h3>Take IPSS Questionnaire</h3>
+        <ul>
+            <li>Score 0-7 : Home Program</li>
+            <li>Score of 8 or greater : See Doctor</li>
+        </ul>
+        <h2>ERECTILE DYSFUNCTION</h2>
+
+
+        <form name="form2" method="post" action="{{ url_for('male_urinary') }}">
+            {{ form.csrf_token }}
+
+
+                <h5>1.	Do you experience any of the following:
+                </h5>
+              <p>
+                Failure to ejaculate/ reach orgasm.
+                  {% for subfield in form.radio1 %}
+                <div class="form-check">
+                 <label>
+                {{ subfield }}
+                  {{ subfield.label }}</label>
+                </div>
+                {% endfor %}
+
+                <br>
+                Reduced sexual desire.
+                {% for subfield in form.radio2 %}
+                <div class="form-check">
+                 <label>
+                {{ subfield }}
+                  {{ subfield.label }}</label>
+                </div>
+                {% endfor %}
+                <br>
+
+                <label>
+              <input class="btn btn-primary" type="submit" name="next" id="next" value="Submit">
+              </label>
+              </p>
+
+
+            </form>
+
+        </div>
+</div>
+
+
+
+
+
+</div>
+
+
+</main>
+
+{% include 'includes/footer.html' %}
