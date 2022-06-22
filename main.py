@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, flash
 from flask_wtf import FlaskForm
-from wtforms import RadioField, StringField
+from wtforms import RadioField, StringField, PasswordField
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user, login_manager
@@ -17,8 +17,8 @@ class RegisterForm(FlaskForm):
     last_name = StringField('Last Name')
     email = StringField('Email')
     phone_number = StringField('Phone')
-    password = StringField('Password')
-    confirm_password = StringField('Confirm Password')
+    password = PasswordField('Password')
+    confirm_password = PasswordField('Confirm Password')
 
 
 class BackPainForm(FlaskForm):
